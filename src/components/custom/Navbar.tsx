@@ -8,10 +8,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
+import MaxWidthWrapper from './MaxWidthWrapper';
+
 
 const Navbar = () => {
   return (
+
     <header className="bg-white">
+    <MaxWidthWrapper>
       <nav className="container py-5 flex justify-between items-center">
         <div className="flex gap-8 items-center">
           <svg
@@ -67,6 +71,7 @@ const Navbar = () => {
           <Button size={"sm"}>Logout</Button>
         </div>
       </nav>
+    </MaxWidthWrapper>
     </header>
   );
 };

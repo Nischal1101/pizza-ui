@@ -1,14 +1,11 @@
-import { Navbar,Hero } from "@/components"
+import { Hero } from "@/components";
 
-
-const page= () => {
+const page = () => {
   return (
     <>
-    <Navbar/>
-    <Hero/>
+      <Hero />
     </>
-  )
-}
+  );
+};
 
-export default page
-
+export default page;

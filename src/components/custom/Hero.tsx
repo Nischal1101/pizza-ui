@@ -14,11 +14,13 @@ import { Search } from "lucide-react";
 import { pizzas } from "../list/pizzalist";
 import Card from "./Card";
 import Image from "next/image";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const Hero = () => {
   return (
     <>
       <section className="bg-white">
+        <MaxWidthWrapper>
         <div className="container flex justify-between items-center py-24">
           <div className="w-1/2 space-y-4">
             <h1 className="text-7xl font-sans  font-semibold">
@@ -36,8 +38,10 @@ const Hero = () => {
             />
           </div>
         </div>
+        </MaxWidthWrapper>
       </section>
       <section className="">
+        <MaxWidthWrapper>
         <div className="container py-8 ">
           <div className="flex justify-between">
             <Tabs defaultValue="account" className=" ">
@@ -86,6 +90,8 @@ const Hero = () => {
             </Select>
           </div>
         </div>
+        </MaxWidthWrapper>
+
       </section>
     </>
   );
