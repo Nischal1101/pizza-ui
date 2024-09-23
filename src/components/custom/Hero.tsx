@@ -66,12 +66,15 @@ const Hero = () => {
                 <h1 className="mt-6">hello4</h1>
               </TabsContent>
             </Tabs>
-            <div className="w-[450px]">
-              <Search className="absolute left-3" size={20} />
+            <div className="relative w-[450px] flex items-center justify-center">
+            <div>
+
+              <Search className="absolute left-3 top-[0.77rem] " size={20} />
+            </div>
               <input
                 placeholder="testing"
                 type="text"
-                className="w-full border px-2 py-2 rounded-lg"
+                className="w-full border  pl-8 py-2 rounded-lg"
               />
             </div>
             <Select>
