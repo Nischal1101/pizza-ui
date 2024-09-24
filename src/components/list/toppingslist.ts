@@ -4,7 +4,7 @@ import jelapeno from "@/assets/img/jelapeno.png";
 import mushroom from "@/assets/img/mushroom.png";
 import { Iproducts } from "@/types";
 
-export const pizzas: Iproducts[] = [
+export const toppings: Iproducts[] = [
   {
     id:1,
     name: "Cheese",
@@ -19,6 +19,7 @@ export const pizzas: Iproducts[] = [
   },
   {
     id:3,
+
     name: "Chicken",
     img: chicken,
     price: 40,
@@ -29,28 +30,29 @@ export const pizzas: Iproducts[] = [
     img: mushroom,
     price: 4000,
   },
-  {
-    id:5,
-    name: "Cheese",
-    img: cheese,
-    price: 200,
-  },
-  {
-    id:6,
-    name: "Jelapeno",
-    img: jelapeno,
-    price: 1000,
-  },
-  {
-    id:7,
-    name: "Chicken",
-    img: chicken,
-    price: 100,
-  },
-  {
-    id:8,
-    name: "Mushroom",
-    img: mushroom,
-    price: 580,
-  },
+  // {
+    // id:5,
+  //   name: "Cheese",
+  //   img: cheese,
+  //   price: 200,
+  // },
+  // {
+    // id:6,
+  //   name: "Jelapeno",
+  //   img: jelapeno,
+  //   price: 1000,
+  // },
+  // {
+  //
+    // id:6,
+  //   name: "Chicken",
+  //   img: chicken,
+  //   price: 100,
+  // },
+  // {
+    // id:7,
+  //   name: "Mushroom",
+  //   img: mushroom,
+  //   price: 580,
+  // },
 ];
