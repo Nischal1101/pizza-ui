@@ -18,7 +18,6 @@ const ProductCard = ({ obj }: IPropType) => {
   return (
     <Card className="max-w-[350px] border-none rounded-xl shadow-xl">
       <CardHeader className="flex justify-center items-center">
-        {/* Todo: Fix image size problem */}
         <Image
           src={obj.img}
           className="object-cover w-[150px] h-[150px]"
