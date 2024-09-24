@@ -16,31 +16,14 @@ interface IPropType {
 
 const ProductCard = ({ obj }: IPropType) => {
   return (
-    // <div className="">
-    //   <div>
-    //     <img src={obj.img} alt="cheese loading" />
-    //   </div>
-    //   <h1>{obj.name}</h1>
-    //   <p>
-    //     Juicy chicken fillet and crispy bacon combined with signature tomato
-    //     sauce, Mozzarella and onions
-    //   </p>
-    //   <div>
-    //     <button>S</button>
-    //     <button>M</button>
-    //     <button>L</button>
-    //   </div>
-    //   <div>
-    //     <p>{obj.price}</p>
-    //     <Button>
-    //       <CirclePlus color="#ea580c" />
-    //     </Button>
-    //   </div>
-    // </div>
     <Card className="max-w-[350px] border-none rounded-xl shadow-xl">
       <CardHeader className="flex justify-center items-center">
         {/* Todo: Fix image size problem */}
-        <Image src={obj.img} width={150} height={150} alt="cheese loading" />
+        <Image
+          src={obj.img}
+          className="object-cover w-[150px] h-[150px]"
+          alt="cheese loading"
+        />
       </CardHeader>
       <CardContent>
         <h1 className="font-bold ">{obj.name}</h1>
@@ -57,7 +40,10 @@ const ProductCard = ({ obj }: IPropType) => {
       </CardContent>
       <CardFooter className="flex justify-between">
         <p className="font-bold">RS {obj.price}</p>
-        <button className="rounded-full w-8 h-8 bg-primary flex justify-center items-center">
+        <button
+          type="button"
+          className="rounded-full w-8 h-8 bg-primary flex justify-center items-center"
+        >
           <Plus size={22} color="white" />
         </button>
       </CardFooter>
