@@ -1,7 +1,11 @@
 import { Hero } from "@/components";
 
 const page = () => {
-  return <>{/* <Hero /> */}</>;
+  return (
+    <>
+      <Hero />{" "}
+    </>
+  );
 };
 
 export default page;
