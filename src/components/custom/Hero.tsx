@@ -24,11 +24,11 @@ const Hero = () => {
               </p>
               <Button>Order now &rarr;</Button>
             </div>
-            <div className="">
+            <div className="flex justify-center">
               <Image
                 src={pizza}
                 alt="pizza image loading"
-                className="w-full h-auto "
+                className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]"
               />
             </div>
           </div>
