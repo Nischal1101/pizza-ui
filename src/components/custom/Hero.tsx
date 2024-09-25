@@ -46,14 +46,14 @@ const Hero = () => {
                 </TabsList>
                 <TabsContent value="pizza" className="mt-5">
                   <div className="grid mt-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
-                    {pizzas.map((pizza:Iproducts) => (
+                    {pizzas.map((pizza: Iproducts) => (
                       <ProductCard obj={pizza} key={pizza.name} />
                     ))}
                   </div>
                 </TabsContent>
                 <TabsContent value="softdrinks" className="mt-5">
                   <div className="grid mt-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
-                    {drinks.map((drink:Iproducts) => (
+                    {drinks.map((drink: Iproducts) => (
                       <ProductCard obj={drink} key={drink.name} />
                     ))}
                   </div>
