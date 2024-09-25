@@ -15,7 +15,7 @@ const PizzaSize = () => {
           />
           <Label
             htmlFor="small"
-            className="flex rounded-full w-8 h-8 items-center justify-center border-2  hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
+            className="flex rounded-full w-8 h-8 items-center justify-center  hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
           >
             S
           </Label>
@@ -30,7 +30,7 @@ const PizzaSize = () => {
           />
           <Label
             htmlFor="medium"
-            className="flex items-center justify-center rounded-full w-8 h-8 border-2   hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
+            className="flex items-center justify-center rounded-full w-8 h-8    hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
           >
             M
           </Label>
@@ -45,7 +45,7 @@ const PizzaSize = () => {
           />
           <Label
             htmlFor="large"
-            className="flex items-center justify-center rounded-full w-8 h-8 border-2   hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
+            className="flex items-center justify-center rounded-full w-8 h-8   hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:bg-primary [&:has([data-state=checked])]:bg-primary peer-data-[state=checked]:text-white [&:has([data-state=checked])]:text-white"
           >
             L
           </Label>
