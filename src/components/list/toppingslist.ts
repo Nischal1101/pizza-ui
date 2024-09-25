@@ -6,51 +6,50 @@ import { Iproducts } from "@/types";
 
 export const toppings: Iproducts[] = [
   {
-    id:1,
+    id: 1,
     name: "Cheese",
     img: cheese,
-    price: 500,
+    price: 150,
   },
   {
-    id:2,
+    id: 2,
     name: "Jelapeno",
     img: jelapeno,
-    price: 500,
+    price: 100,
   },
   {
-    id:3,
-
+    id: 3,
     name: "Chicken",
     img: chicken,
-    price: 40,
+    price: 250,
   },
   {
-    id:4,
+    id: 4,
     name: "Mushroom",
     img: mushroom,
-    price: 4000,
+    price: 120,
   },
   // {
-    // id:5,
+  // id:5,
   //   name: "Cheese",
   //   img: cheese,
   //   price: 200,
   // },
   // {
-    // id:6,
+  // id:6,
   //   name: "Jelapeno",
   //   img: jelapeno,
   //   price: 1000,
   // },
   // {
   //
-    // id:6,
+  // id:6,
   //   name: "Chicken",
   //   img: chicken,
   //   price: 100,
   // },
   // {
-    // id:7,
+  // id:7,
   //   name: "Mushroom",
   //   img: mushroom,
   //   price: 580,

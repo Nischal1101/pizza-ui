@@ -1,56 +1,55 @@
-import cheese from "@/assets/img/cheese.png";
-import chicken from "@/assets/img/chicken.png";
-import jelapeno from "@/assets/img/jelapeno.png";
-import mushroom from "@/assets/img/mushroom.png";
+import cheese from "@/assets/img/cheese.jpg";
+import pepproni from "@/assets/img/pepproni.jpg";
+import margarita from "@/assets/img/margarita.jpg";
 import { Iproducts } from "@/types";
 
 export const pizzas: Iproducts[] = [
   {
-    id:1,
+    id: 1,
     name: "Cheese",
     img: cheese,
     price: 500,
   },
   {
-    id:2,
-    name: "Jelapeno",
-    img: jelapeno,
+    id: 2,
+    name: "Pepproni",
+    img: pepproni,
     price: 500,
   },
   {
-    id:3,
-    name: "Chicken",
-    img: chicken,
+    id: 3,
+    name: "Margarita",
+    img: margarita,
     price: 40,
   },
   {
-    id:4,
-    name: "Mushroom",
-    img: mushroom,
+    id: 4,
+    name: "Margarita",
+    img: margarita,
     price: 4000,
   },
   {
-    id:5,
+    id: 5,
     name: "Cheese",
     img: cheese,
     price: 200,
   },
   {
-    id:6,
-    name: "Jelapeno",
-    img: jelapeno,
+    id: 6,
+    name: "Pepproni",
+    img: pepproni,
     price: 1000,
   },
   {
-    id:7,
-    name: "Chicken",
-    img: chicken,
+    id: 7,
+    name: "Cheese",
+    img: cheese,
     price: 100,
   },
   {
-    id:8,
-    name: "Mushroom",
-    img: mushroom,
+    id: 8,
+    name: "Margarita",
+    img: margarita,
     price: 580,
   },
 ];
