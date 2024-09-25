@@ -6,13 +6,16 @@ import { CircleCheck } from "lucide-react";
 import { Itopping } from "@/types";
 
 const toppings = ({ topping }: { topping: Itopping }) => {
-  const [clicked, setClicked] = React.useState(false);
+  const [checked, setChecked] = React.useState<number[]>([]);
+  const isChecked = checked.includes(topping.id);
   return (
     <>
       <Card
-        className={`${clicked && "border border-primary"} p-2 relative`}
+        className={`${isChecked && "border border-primary"} p-2 relative`}
         onClick={() => {
-          setClicked(true);
+          checked.includes(topping.id)
+            ? setChecked(checked.filter(id=>id !== topping.id))
+            : setChecked([...checked, topping.id]);
         }}
       >
         <Image
