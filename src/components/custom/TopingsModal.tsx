@@ -1,8 +1,9 @@
-import { Plus } from "lucide-react";
+import { Plus, ShoppingBasket } from "lucide-react";
 import { PizzaSize, Toppings } from "@/components";
 import { Iproducts } from "@/types";
 import { toppings } from "../list/toppingslist";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const TopingsModal = ({ obj }: { obj: Iproducts }) => {
   return (
@@ -16,7 +17,7 @@ const TopingsModal = ({ obj }: { obj: Iproducts }) => {
             alt="pizza is loading"
           />
         </div>
-        <div className="w-2/3 py-3 px-4">
+        <div className="w-2/3 py-6 px-4">
           <h1 className="font-semibold text-2xl">{obj.name}</h1>
           <p className="text-muted-foreground mt-2">
             Juicy chicken fillet and crispy bacon combined with signature tomato
@@ -29,14 +30,14 @@ const TopingsModal = ({ obj }: { obj: Iproducts }) => {
               <Toppings topping={ele} />
             ))}
           </div>
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-6">
             <p className="font-bold">RS {obj.price}</p>
-            <button
-              type="button"
-              className="rounded-full w-8 h-8 bg-primary flex justify-center items-center"
-            >
-              <Plus size={22} color="white" />
-            </button>
+            <Button className="flex items-center justify-center">
+              <span className="mr-2">
+                <ShoppingBasket />
+              </span>
+              Add to Cart &rarr;
+            </Button>
           </div>
         </div>
       </div>

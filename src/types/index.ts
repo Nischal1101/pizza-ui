@@ -6,5 +6,8 @@ export interface Iproducts {
   img: string | StaticImageData;
   price: number;
 }
+export interface ICartProduct extends Iproducts {
+  size: "S" | "M" | "L";
+}
 
 export interface Itopping extends Iproducts {}

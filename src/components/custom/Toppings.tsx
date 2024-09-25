@@ -11,7 +11,7 @@ const toppings = ({ topping }: { topping: Itopping }) => {
   return (
     <>
       <Card
-        className={`${isChecked && "border border-primary"} p-2 relative`}
+        className={`${isChecked && "border border-primary"} p-2 relative my-8`}
         onClick={() => {
           checked.includes(topping.id)
             ? setChecked(checked.filter(id=>id !== topping.id))

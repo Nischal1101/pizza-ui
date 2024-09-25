@@ -4,8 +4,9 @@ import pizzaMain from "@/assets/img/pizza-main.png";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Iproducts } from "@/types";
 
-const CartItem = () => {
+const CartItem = ({ product }: { product: Iproducts }) => {
   const [itemNumber, setItemNumber] = React.useState(1);
 
   return (
