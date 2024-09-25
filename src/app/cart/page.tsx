@@ -9,7 +9,7 @@ const cartPage = () => {
   return (
     <>
       <main className="flex flex-col items-center justify-center">
-        <section className="w-1/2">
+        <section className="w-[90%] md:w-[60%] lg:w-1/2">
           <h1 className="font-bold my-8">Shopping Cart</h1>
           <Card>
             <CartItem />
