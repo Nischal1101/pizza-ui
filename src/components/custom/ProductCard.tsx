@@ -28,11 +28,9 @@ const ProductCard = ({ obj }: IPropType) => {
       <CardContent>
         <h1 className="font-bold ">{obj.name}</h1>
         <p className="font-semibold text-muted-foreground">
-          {" "}
           Juicy chicken fillet and crispy bacon combined with signature tomato
           sauce, Mozzarella and onions
         </p>
-        <PizzaSize />
       </CardContent>
       <CardFooter className="flex justify-between">
         <p className="font-bold">RS {obj.price}</p>
