@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const CartItem = () => {
+  const [itemNumber, setItemNumber] = React.useState(1);
+
   return (
     <>
       <div className="px-2 md:px-3 lg:px-5 py-3 lg:py-4">
@@ -29,24 +31,24 @@ const CartItem = () => {
                 className="bg-[#f3f4f6] rounded-3xl px-2 md:px-3 lg:px-5 flex gap-2 lg:gap-4 hover:bg-[#f3f4f6] hover:opacity-75"
               >
                 <span
-                  className="text-xl font-bold"
+                  className="text-2xl font-bold px-3 py-4"
                   onClick={() => {
-                    console.log("minus");
+                    setItemNumber((prev) => Math.max(0, prev - 1));
                   }}
                 >
                   -
                 </span>
-                <p>1</p>
+                <p>{itemNumber}</p>
                 <span
-                  className="text-xl font-bold"
+                  className="text-2xl font-bold px-3 py-4"
                   onClick={() => {
-                    console.log("plus");
+                    setItemNumber((prev) => Math.min(prev + 1, 10));
                   }}
                 >
                   +
                 </span>
               </Button>
-              <Button variant={"ghost"} className="md:hidden">
+              <Button variant={"ghost"} className="md:hidden p-0">
                 <X size={18} />
               </Button>
             </div>
@@ -54,7 +56,7 @@ const CartItem = () => {
           </div>
           <div className="hidden md:flex items-center gap-1">
             Rs.600{" "}
-            <Button variant={"ghost"}>
+            <Button variant={"ghost"} className="p-0">
               <X size={18} />
             </Button>
           </div>
