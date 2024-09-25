@@ -3,7 +3,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -88,7 +87,9 @@ const Navbar = () => {
               <li>Orders</li>
             </ul>
             <div className="relative">
-              <ShoppingBasket />
+              <Link href={"/cart"}>
+                <ShoppingBasket />
+              </Link>
               <span className="absolute -top-4 -right-5  size-6 rounded-full text-center bg-primary">
                 3
               </span>
