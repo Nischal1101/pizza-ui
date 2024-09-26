@@ -1,4 +1,4 @@
-import { PizzaSize, TopingsModal } from "@/components";
+import { TopingsModal } from "@/components";
 import React from "react";
 import { Plus } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";

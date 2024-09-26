@@ -17,6 +17,7 @@ import {
 import { Button } from "../ui/button";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
+import ShoppingCartNav from "./ShoppingCartNav";
 
 const Navbar = () => {
   return (
@@ -89,14 +90,7 @@ const Navbar = () => {
               <li>Menu</li>
               <li>Orders</li>
             </ul>
-            <div className="relative">
-              <Link href={"/cart"}>
-                <ShoppingBasket />
-              </Link>
-              <span className="absolute -top-4 -right-5  size-6 rounded-full text-center bg-primary">
-                3
-              </span>
-            </div>
+            <ShoppingCartNav />
             <div className="flex items-center ml-4 md:ml-10">
               <Phone />
               <span className="hidden lg:block">+91 9800 098 998</span>

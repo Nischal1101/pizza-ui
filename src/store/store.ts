@@ -1,31 +1,23 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-type Tselected = {
-  S: boolean;
-  M: boolean;
-  L: boolean;
-};
+
 type State = {
-  selected: Tselected;
+  cartItems: number;
 };
 type Actions = {
-  setSelected: (selected: Tselected) => void;
+  setCartItems: (noOfItems: number) => void;
 };
-const usePizzaStore = create<State & Actions>()(
+const useCartStore = create<State & Actions>()(
   persist(
     (set) => ({
-      selected: {
-        S: true,
-        M: false,
-        L: false,
-      },
-      setSelected: (passed) => set(() => ({ selected: passed })),
+      cartItems: 0,
+      setCartItems: (noOfItems) => set({ cartItems: noOfItems }),
     }),
     {
-      name: "pizza-store",
+      name: "cart-store",
       skipHydration: true,
     }
   )
 );
 
-export default usePizzaStore;
+export default useCartStore;

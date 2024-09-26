@@ -1,13 +1,13 @@
 import { Button } from "../ui/button";
 import pizza from "../../assets/img/pizza-main.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { pizzas } from "../list/pizzalist";
 import Image from "next/image";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import ProductCard from "./ProductCard";
 import { drinks } from "../list/drinkslist";
 import { Iproducts } from "@/types";
+import AllProductCard from "./AllProductCard";
+import { pizzas } from "../list/pizzalist";
 
 const Hero = () => {
   return (
@@ -45,11 +45,9 @@ const Hero = () => {
                   <TabsTrigger value="softdrinks">Softdrinks</TabsTrigger>
                 </TabsList>
                 <TabsContent value="pizza" className="mt-5">
-                  <div className="grid mt-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
-                    {pizzas.map((pizza: Iproducts) => (
-                      <ProductCard obj={pizza} key={pizza.name} />
-                    ))}
-                  </div>
+                  
+                    <AllProductCard pizzas={pizzas} />
+                
                 </TabsContent>
                 <TabsContent value="softdrinks" className="mt-5">
                   <div className="grid mt-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">

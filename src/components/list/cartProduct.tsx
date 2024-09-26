@@ -10,6 +10,20 @@ export const cartProduct: ICartProduct[] = [
     img: cheese,
     price: 500,
     size: "S",
+    toppings: [
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+    ],
   },
   {
     id: 2,
@@ -17,6 +31,20 @@ export const cartProduct: ICartProduct[] = [
     img: pepproni,
     price: 500,
     size: "S",
+    toppings: [
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+    ],
   },
   {
     id: 3,
@@ -24,5 +52,19 @@ export const cartProduct: ICartProduct[] = [
     img: margarita,
     price: 40,
     size: "L",
+    toppings: [
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+      {
+        name: "cheese",
+        price: 200,
+      },
+    ],
   },
 ];

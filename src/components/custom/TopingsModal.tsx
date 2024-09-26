@@ -1,11 +1,18 @@
-import { Plus, ShoppingBasket } from "lucide-react";
+"use client";
+import { ShoppingBasket } from "lucide-react";
 import { PizzaSize, Toppings } from "@/components";
 import { Iproducts } from "@/types";
 import { toppings } from "../list/toppingslist";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { DialogClose } from "../ui/dialog";
+import useCartStore from "@/store/store";
 
 const TopingsModal = ({ obj }: { obj: Iproducts }) => {
+  const { setCartItems } = useCartStore();
+  const handleAddToCart = () => {
+    setCartItems(3);
+  };
   return (
     <>
       <div className="w-full flex justify-between items-center ">
@@ -32,12 +39,17 @@ const TopingsModal = ({ obj }: { obj: Iproducts }) => {
           </div>
           <div className="flex justify-between mt-6">
             <p className="font-bold">RS {obj.price}</p>
-            <Button className="flex items-center justify-center">
-              <span className="mr-2">
-                <ShoppingBasket />
-              </span>
-              Add to Cart &rarr;
-            </Button>
+            <DialogClose asChild>
+              <Button
+                className="flex items-center justify-center"
+                onClick={handleAddToCart}
+              >
+                <span className="mr-2">
+                  <ShoppingBasket />
+                </span>
+                Add to Cart &rarr;
+              </Button>
+            </DialogClose>
           </div>
         </div>
       </div>
