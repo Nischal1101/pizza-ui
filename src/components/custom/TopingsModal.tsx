@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ShoppingBasket } from "lucide-react";
 import { PizzaSize, Toppings } from "@/components";
 import { toppings } from "../list/toppingslist";
@@ -17,16 +17,21 @@ const TopingsModal = ({ selectedProduct }: { selectedProduct: Iproduct }) => {
   const [selectedToppings, setSelectedToppings] = React.useState<Itoppings[]>(
     []
   );
-  const handleAddToCart = () => {
+
+  useEffect(() => {
     const res = toppings.filter((topping) => checked.includes(topping.id));
+    console.log(res);
     setSelectedToppings(res);
+  }, [checked]);
+  // console.log("topingsModalPagebata", checked);
+  const handleAddToCart = () => {
     setCartItems({
       product: selectedProduct,
       chosenConfiguration: {
         priceConfiguration: {
           size: pizzaSize,
         },
-        selectedToppings: selectedToppings,
+        selectedToppings: [],
       },
     });
   };

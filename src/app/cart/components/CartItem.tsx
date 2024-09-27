@@ -1,18 +1,57 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ICartItem } from "@/types";
+import useCartStore from "@/store/store";
+import { Iprice } from "../page";
 
-const CartItem = ({ product }: { product: ICartItem }) => {
+const CartItem = ({
+  product,
+  setPrices,
+}: {
+  product: ICartItem;
+  prices: Iprice[];
+  setPrices: React.Dispatch<React.SetStateAction<Iprice[]>>;
+}) => {
   const [itemNumber, setItemNumber] = React.useState(1);
+  const { removeCartItem, cartItems } = useCartStore();
+  const removePrice = (productId: number) => {
+    setPrices((prev) =>
+      prev.filter((priceItem) => priceItem.productId !== productId)
+    );
+  };
+  useEffect(() => {
+    setPrices((prev) => {
+      const existingProductIndex = prev.findIndex(
+        (priceItem) => priceItem.productId === product.product.id
+      );
+
+      if (existingProductIndex !== -1) {
+        // Update the existing product's price
+        const updatedPrices = [...prev];
+        updatedPrices[existingProductIndex].price =
+          itemNumber * product.product.price;
+        return updatedPrices;
+      } else {
+        // Add the new product's price
+        return [
+          ...prev,
+          {
+            price: itemNumber * product.product.price,
+            productId: product.product.id,
+          },
+        ];
+      }
+    });
+  }, [itemNumber, setPrices]);
 
   return (
     <>
       <div className="px-2 md:px-3 lg:px-5 py-3 lg:py-4">
         <div className="flex py-2 lg:py-3 justify-between  items-center border-b-2 ">
-          <div className="flex gap-2 md:gap-3 lg:gap-4 items-center justify-center">
+          <div className="flex gap-2 md:gap-3 lg:gap-4 items-center justify-left w-1/3">
             <Image
               src={product.product.img}
               alt="pizza loading"
@@ -21,10 +60,13 @@ const CartItem = ({ product }: { product: ICartItem }) => {
             <div>
               <h1 className="font-bold">{product.product.name}</h1>
               <p>{product.chosenConfiguration.priceConfiguration.size}</p>
-              {/* <p>{product.chosenConfiguration.selectedToppings[0].name}</p> */}
+              <p>{product.chosenConfiguration.selectedToppings[0]?.name}</p>
+              <p>{product.chosenConfiguration.selectedToppings[1]?.name}</p>
+              <p>{product.chosenConfiguration.selectedToppings[2]?.name}</p>
+              <p>{product.chosenConfiguration.selectedToppings[3]?.name}</p>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex flex-col items-left justify-center gap-2 ">
             <div className="flex items-center justify-center gap-1">
               <Button
                 variant={"outline"}
@@ -48,15 +90,36 @@ const CartItem = ({ product }: { product: ICartItem }) => {
                   +
                 </span>
               </Button>
-              <Button variant={"ghost"} className="md:hidden p-0">
+              <Button
+                variant={"ghost"}
+                className="md:hidden p-0"
+                onClick={() => {
+                  removeCartItem(product.product.id);
+                  removePrice(product.product.id);
+                }}
+              >
                 <X size={18} />
               </Button>
             </div>
-            <p className="md:hidden font-bold text-dark">Rs 600</p>
+            <div className="md:hidden font-bold text-dark w-4">
+              <p className="w-20 ml-3 text-muted-foreground">
+                Rs {itemNumber * product.product.price}
+              </p>
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-1">
-            Rs.600{" "}
-            <Button variant={"ghost"} className="p-0">
+          <div className="hidden md:flex items-center gap-1  ">
+            <p className="w-20 text-muted-foreground">
+              Rs {itemNumber * product.product.price}
+            </p>
+            <Button
+              variant={"ghost"}
+              className="p-0"
+              onClick={() => {
+                removeCartItem(product.product.id);
+
+                removePrice(product.product.id);
+              }}
+            >
               <X size={18} />
             </Button>
           </div>

@@ -4,25 +4,22 @@ import { persist } from "zustand/middleware";
 
 type State = {
   cartItems: ICartItem[];
-  cartItemsNumber: number;
 };
 type Actions = {
-  setCartItems: (newItme: ICartItem) => void;
-  // setCartItemsNumber: () => void;
+  setCartItems: (newItem: ICartItem) => void;
+  removeCartItem: (itemId: number) => void;
 };
 const useCartStore = create<State & Actions>()(
   persist(
     (set) => ({
       cartItems: [],
-      cartItemsNumber: 0,
-      // setCartItemsNumber: () =>
-      //   set((state) => ({
-      //     cartItemsNumber: state.cartItems.length,
-      //   })),
       setCartItems: (newItem) =>
         set((state) => {
           const itemExists = state.cartItems.some(
-            (item: ICartItem) => item.product.id === newItem.product.id // Assuming each item has a unique 'id' property
+            (item: ICartItem) =>
+              item.product.id === newItem.product.id &&
+              item.chosenConfiguration.priceConfiguration.size ===
+                newItem.chosenConfiguration.priceConfiguration.size // Assuming each item has a unique 'id' property
           );
           if (!itemExists) {
             return {
@@ -31,6 +28,12 @@ const useCartStore = create<State & Actions>()(
           }
           return state; // Return the current state if the item already exists
         }),
+      removeCartItem: (itemId) =>
+        set((state) => ({
+          cartItems: state.cartItems.filter(
+            (item: ICartItem) => item.product.id !== itemId
+          ),
+        })),
     }),
     {
       name: "cart-store",
