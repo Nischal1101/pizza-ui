@@ -22,6 +22,15 @@ const CartItem = ({
       prev.filter((priceItem) => priceItem.productId !== productId)
     );
   };
+  const myToppingPrice = () => {
+    const l = cartItems.filter((p) => p.product.id === product.product.id);
+    let price =
+      l[0].chosenConfiguration.selectedToppings?.reduce(
+        (acc, item) => acc + item.price,
+        0
+      ) | 0;
+    return price;
+  };
   useEffect(() => {
     setPrices((prev) => {
       const existingProductIndex = prev.findIndex(
@@ -32,14 +41,14 @@ const CartItem = ({
         // Update the existing product's price
         const updatedPrices = [...prev];
         updatedPrices[existingProductIndex].price =
-          itemNumber * product.product.price;
+          itemNumber * product.product.price + myToppingPrice();
         return updatedPrices;
       } else {
         // Add the new product's price
         return [
           ...prev,
           {
-            price: itemNumber * product.product.price,
+            price: itemNumber * product.product.price + myToppingPrice(),
             productId: product.product.id,
           },
         ];
@@ -103,13 +112,13 @@ const CartItem = ({
             </div>
             <div className="md:hidden font-bold text-dark w-4">
               <p className="w-20 ml-3 text-muted-foreground">
-                Rs {itemNumber * product.product.price}
+                Rs {itemNumber * product.product.price + myToppingPrice()}
               </p>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-1  ">
             <p className="w-20 text-muted-foreground">
-              Rs {itemNumber * product.product.price}
+              Rs {itemNumber * product.product.price + myToppingPrice()}
             </p>
             <Button
               variant={"ghost"}
