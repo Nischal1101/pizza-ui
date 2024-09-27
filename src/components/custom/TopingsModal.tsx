@@ -11,18 +11,25 @@ import useCartStore from "@/store/store";
 import { Iproduct, Itoppings } from "@/types";
 
 const TopingsModal = ({ selectedProduct }: { selectedProduct: Iproduct }) => {
+  const [selectedToppings, setSelectedToppings] = React.useState([toppings[0]]);
+
+  const handleCheckBoxCheck = (topping: Itoppings) => {
+    const isAlreadyExists = selectedToppings.some(
+      (element) => element.id === topping.id
+    );
+
+    if (isAlreadyExists) {
+      setSelectedToppings((prev) =>
+        prev.filter((elm) => elm.id !== topping.id)
+      );
+      return;
+    }
+
+    setSelectedToppings((prev) => [...prev, topping]);
+  };
   const [pizzaSize, setPizzaSize] = React.useState<"S" | "M" | "L">("S");
   const { setCartItems } = useCartStore();
-  const [checked, setChecked] = React.useState<number[]>([]);
-  const [selectedToppings, setSelectedToppings] = React.useState<Itoppings[]>(
-    []
-  );
 
-  useEffect(() => {
-    const res = toppings.filter((topping) => checked.includes(topping.id));
-    console.log(res);
-    setSelectedToppings(res);
-  }, [checked]);
   // console.log("topingsModalPagebata", checked);
   const handleAddToCart = () => {
     setCartItems({
@@ -31,7 +38,7 @@ const TopingsModal = ({ selectedProduct }: { selectedProduct: Iproduct }) => {
         priceConfiguration: {
           size: pizzaSize,
         },
-        selectedToppings: [],
+        selectedToppings,
       },
     });
   };
@@ -60,8 +67,8 @@ const TopingsModal = ({ selectedProduct }: { selectedProduct: Iproduct }) => {
               <Toppings
                 key={ele.id}
                 topping={ele}
-                checked={checked}
-                setChecked={setChecked}
+                selectedToppings={selectedToppings}
+                handleCheckBoxCheck={handleCheckBoxCheck}
               />
             ))}
           </div>

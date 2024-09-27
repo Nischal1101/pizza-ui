@@ -5,25 +5,25 @@ import Image from "next/image";
 import { CircleCheck } from "lucide-react";
 import { Itoppings } from "@/types";
 
-const toppings = ({
+const Toppings = ({
   topping,
-  checked,
-  setChecked,
+  selectedToppings,
+  handleCheckBoxCheck,
 }: {
   topping: Itoppings;
-  checked: number[];
-  setChecked: React.Dispatch<React.SetStateAction<number[]>>;
+  selectedToppings: Itoppings[];
+  handleCheckBoxCheck: (topping: Itoppings) => void;
 }) => {
-  const isChecked = checked.includes(topping.id);
+  const isCurrentSelected = selectedToppings.some(
+    (element) => element.id === topping.id
+  );
   return (
     <>
       <Card
-        className={`${isChecked && "border border-primary"} p-2 relative my-8`}
-        onClick={() => {
-          checked.includes(topping.id)
-            ? setChecked(checked.filter((id) => id !== topping.id))
-            : setChecked([...checked, topping.id]);
-        }}
+        className={`${
+          isCurrentSelected && "border border-primary"
+        } p-2 relative my-8`}
+        onClick={() => handleCheckBoxCheck(topping)}
       >
         <Image
           src={topping.img}
@@ -39,4 +39,4 @@ const toppings = ({
   );
 };
 
-export default toppings;
+export default Toppings;
