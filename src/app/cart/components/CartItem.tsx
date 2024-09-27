@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
-import pizzaMain from "@/assets/img/pizza-main.png";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Iproducts } from "@/types";
+import { ICartItem } from "@/types";
 
-const CartItem = ({ product }: { product: Iproducts }) => {
+const CartItem = ({ product }: { product: ICartItem }) => {
   const [itemNumber, setItemNumber] = React.useState(1);
 
   return (
@@ -15,14 +14,14 @@ const CartItem = ({ product }: { product: Iproducts }) => {
         <div className="flex py-2 lg:py-3 justify-between  items-center border-b-2 ">
           <div className="flex gap-2 md:gap-3 lg:gap-4 items-center justify-center">
             <Image
-              src={pizzaMain}
+              src={product.product.img}
               alt="pizza loading"
               className="h-[60px] w-[60px] md:h-[60px] md:w-[60px] lg:h-[70px] lg:w-[70px] object-cover"
             ></Image>
             <div>
-              <h1 className="font-bold">Peppe pizza</h1>
-              <p>Small,Thick</p>
-              <p>Cheese</p>
+              <h1 className="font-bold">{product.product.name}</h1>
+              <p>{product.chosenConfiguration.priceConfiguration.size}</p>
+              {/* <p>{product.chosenConfiguration.selectedToppings[0].name}</p> */}
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-2">

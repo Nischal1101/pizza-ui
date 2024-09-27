@@ -4,10 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import ProductCard from "./ProductCard";
-import { drinks } from "../list/drinkslist";
-import { Iproducts } from "@/types";
+
 import AllProductCard from "./AllProductCard";
-import { pizzas } from "../list/pizzalist";
+
+import { products } from "../list/productlist";
+import { Iproduct } from "@/types";
 
 const Hero = () => {
   return (
@@ -45,15 +46,19 @@ const Hero = () => {
                   <TabsTrigger value="softdrinks">Softdrinks</TabsTrigger>
                 </TabsList>
                 <TabsContent value="pizza" className="mt-5">
-                  
-                    <AllProductCard pizzas={pizzas} />
-                
+                  <AllProductCard
+                    pizzas={products.filter(
+                      (product) => product.category === "pizza"
+                    )}
+                  />
                 </TabsContent>
                 <TabsContent value="softdrinks" className="mt-5">
                   <div className="grid mt-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
-                    {drinks.map((drink: Iproducts) => (
-                      <ProductCard obj={drink} key={drink.name} />
-                    ))}
+                    {products
+                      .filter((p) => p.category === "drinks")
+                      .map((product: Iproduct) => (
+                        <ProductCard obj={product} key={product.name} />
+                      ))}
                   </div>
                 </TabsContent>
               </Tabs>

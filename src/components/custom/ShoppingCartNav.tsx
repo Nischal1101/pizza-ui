@@ -6,6 +6,7 @@ import React from "react";
 
 const ShoppingCartNav = () => {
   const { cartItems } = useCartStore();
+
   return (
     <>
       <div className="relative">
@@ -13,7 +14,7 @@ const ShoppingCartNav = () => {
           <ShoppingBasket />
         </Link>
         <span className="absolute -top-4 -right-5  size-6 rounded-full text-center bg-primary">
-          {cartItems}
+          {cartItems.length}
         </span>
       </div>
     </>

@@ -3,10 +3,17 @@ import React from "react";
 import { Card } from "../ui/card";
 import Image from "next/image";
 import { CircleCheck } from "lucide-react";
-import { Itopping } from "@/types";
+import { Itoppings } from "@/types";
 
-const toppings = ({ topping }: { topping: Itopping }) => {
-  const [checked, setChecked] = React.useState<number[]>([]);
+const toppings = ({
+  topping,
+  checked,
+  setChecked,
+}: {
+  topping: Itoppings;
+  checked: number[];
+  setChecked: React.Dispatch<React.SetStateAction<number[]>>;
+}) => {
   const isChecked = checked.includes(topping.id);
   return (
     <>
@@ -14,7 +21,7 @@ const toppings = ({ topping }: { topping: Itopping }) => {
         className={`${isChecked && "border border-primary"} p-2 relative my-8`}
         onClick={() => {
           checked.includes(topping.id)
-            ? setChecked(checked.filter(id=>id !== topping.id))
+            ? setChecked(checked.filter((id) => id !== topping.id))
             : setChecked([...checked, topping.id]);
         }}
       >

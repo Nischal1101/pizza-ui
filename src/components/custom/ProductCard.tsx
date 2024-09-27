@@ -1,7 +1,12 @@
 import { TopingsModal } from "@/components";
 import React from "react";
 import { Plus } from "lucide-react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Card,
   CardContent,
@@ -10,9 +15,10 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
-import { Iproducts } from "@/types";
+import { Iproduct } from "@/types";
+import { DialogTitle } from "@radix-ui/react-dialog";
 interface IPropType {
-  obj: Iproducts;
+  obj: Iproduct;
 }
 
 const ProductCard = ({ obj }: IPropType) => {
@@ -21,7 +27,7 @@ const ProductCard = ({ obj }: IPropType) => {
       <CardHeader className="flex justify-center items-center">
         <Image
           src={obj.img}
-          className="object-cover w-[150px] h-[150px]"
+          className="productect-cover w-[150px] h-[150px]"
           alt="cheese loading"
         />
       </CardHeader>
@@ -44,7 +50,11 @@ const ProductCard = ({ obj }: IPropType) => {
             </button>
           </DialogTrigger>
           <DialogContent className="max-w-sm md:max-w-3xl p-0">
-            <TopingsModal obj={obj} />
+            <DialogTitle className="hidden">Edit profile</DialogTitle>
+            <DialogDescription className="hidden">
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+            <TopingsModal selectedProduct={obj} />
           </DialogContent>
         </Dialog>
       </CardFooter>

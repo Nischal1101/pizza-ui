@@ -42,7 +42,7 @@ export const products: Iproduct[] = [
   },
   {
     id: 5,
-    name: "OrangeJuice",
+    name: "OrangeJuice2",
     category: "drinks",
     img: OrangeJuice,
     price: 200,
@@ -56,7 +56,7 @@ export const products: Iproduct[] = [
   },
   {
     id: 7,
-    name: "Pepsi",
+    name: "Pepsi2",
     img: Pepsi,
     category: "drinks",
     price: 100,
@@ -84,14 +84,14 @@ export const products: Iproduct[] = [
   },
   {
     id: 11,
-    category: "pizza",
     name: "Margarita",
+    category: "pizza",
     img: margarita,
     price: 600,
   },
   {
     id: 12,
-    name: "Margarita",
+    name: "Margarita2",
     img: margarita,
     price: 200,
     category: "pizza",
@@ -99,7 +99,7 @@ export const products: Iproduct[] = [
 
   {
     id: 13,
-    name: "Cheese",
+    name: "Cheese3",
     img: cheese,
     price: 500,
     category: "pizza",
@@ -107,21 +107,21 @@ export const products: Iproduct[] = [
 
   {
     id: 14,
-    name: "Pepproni",
+    name: "Pepproni2",
     img: pepproni,
     price: 1000,
     category: "pizza",
   },
   {
     id: 15,
-    name: "Cheese",
+    name: "Cheese2",
     img: cheese,
     price: 500,
     category: "pizza",
   },
   {
     id: 16,
-    name: "Margarita",
+    name: "Margarita3",
     img: margarita,
     price: 520,
     category: "pizza",

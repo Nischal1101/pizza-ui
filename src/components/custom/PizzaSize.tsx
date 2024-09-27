@@ -1,11 +1,25 @@
+"use client";
 import React from "react";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 
-const PizzaSize = () => {
+const PizzaSize = ({
+  pizzaSize,
+  setPizzaSize,
+}: {
+  pizzaSize: "S" | "M" | "L";
+  setPizzaSize: React.Dispatch<React.SetStateAction<"S" | "M" | "L">>;
+}) => {
+  const handlePizzaSize = (data: "S" | "M" | "L") => {
+    setPizzaSize(data);
+  };
   return (
     <>
-      <RadioGroup defaultValue="small" className="flex gap-2 mt-5 ">
+      <RadioGroup
+        defaultValue="small"
+        className="flex gap-2 mt-5 "
+        onValueChange={(data: "S" | "M" | "L") => handlePizzaSize(data)}
+      >
         <div>
           <RadioGroupItem
             value="small"
