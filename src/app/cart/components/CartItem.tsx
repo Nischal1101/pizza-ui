@@ -28,7 +28,7 @@ const CartItem = ({
       l[0].chosenConfiguration.selectedToppings?.reduce(
         (acc, item) => acc + item.price,
         0
-      ) | 0;
+      ) | 0;    
     return price;
   };
   useEffect(() => {

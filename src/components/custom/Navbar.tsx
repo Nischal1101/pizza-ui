@@ -1,4 +1,4 @@
-import { Phone, ShoppingBasket } from "lucide-react";
+import { Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,8 +18,20 @@ import { Button } from "../ui/button";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import ShoppingCartNav from "./ShoppingCartNav";
+import { auth, signOut } from "@/auth";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarMenu,
+  MenubarTrigger,
+} from "../ui/menubar";
+import { SignOut } from "./SignOut";
+import { logout } from "@/actions/sign-out-action";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
+
   return (
     <header className="bg-white">
       <MaxWidthWrapper>
@@ -95,7 +107,32 @@ const Navbar = () => {
               <Phone />
               <span className="hidden lg:block">+91 9800 098 998</span>
             </div>
-            <Button size={"sm"}>Logout</Button>
+            {!session ? (
+              <Button size={"sm"}>
+                <Link href={"/sign-in"}>SignIn</Link>
+              </Button>
+            ) : (
+              <Menubar className="bg-white border-none active:bg-none">
+                <MenubarMenu>
+                  <MenubarTrigger>
+                    <Avatar className="">
+                      <AvatarImage
+                        src={session?.user?.image!}
+                        alt="google avatar image"
+                        height={12}
+                        width={12}
+                      />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                  </MenubarTrigger>
+                  <MenubarContent className="w-20">
+                    <form action={logout}>
+                      <Button variant={"outline"}>Logout</Button>
+                    </form>
+                  </MenubarContent>
+                </MenubarMenu>
+              </Menubar>
+            )}
           </div>
         </nav>
       </MaxWidthWrapper>
