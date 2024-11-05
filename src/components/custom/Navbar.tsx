@@ -26,7 +26,6 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../ui/menubar";
-import { SignOut } from "./SignOut";
 import { logout } from "@/actions/sign-out-action";
 
 const Navbar = async () => {
