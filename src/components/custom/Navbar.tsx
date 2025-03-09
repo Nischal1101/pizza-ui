@@ -79,59 +79,14 @@ const Navbar = async () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <div className="hidden md:block">
-              <Select>
-                <SelectTrigger className=" max-w-[180px]  ">
-                  <SelectValue placeholder="Select Location" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="biratnagar">Biratnagar</SelectItem>
-                    <SelectItem value="kathmandu">Kathmandu</SelectItem>
-                    <SelectItem value="pokhara">Pokhara</SelectItem>
-                    <SelectItem value="pathari">Pathari</SelectItem>
-                    <SelectItem value="itahari">Itahari</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
+            
           </div>
           <div className="flex gap-x-4 items-center">
-            <ul className="md:flex space-x-4 hidden  ">
-              <li>Menu</li>
-              <li>Orders</li>
-            </ul>
             <ShoppingCartNav />
             <div className="flex items-center ml-4 md:ml-10">
               <Phone />
               <span className="hidden lg:block">+91 9800 098 998</span>
             </div>
-            {!session ? (
-              <Button size={"sm"}>
-                <Link href={"/sign-in"}>SignIn</Link>
-              </Button>
-            ) : (
-              <Menubar className="bg-white border-none active:bg-none">
-                <MenubarMenu>
-                  <MenubarTrigger>
-                    <Avatar className="">
-                      <AvatarImage
-                        src={session?.user?.image!}
-                        alt="google avatar image"
-                        height={12}
-                        width={12}
-                      />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                  </MenubarTrigger>
-                  <MenubarContent className="w-20">
-                    <form action={logout}>
-                      <Button variant={"outline"}>Logout</Button>
-                    </form>
-                  </MenubarContent>
-                </MenubarMenu>
-              </Menubar>
-            )}
           </div>
         </nav>
       </MaxWidthWrapper>

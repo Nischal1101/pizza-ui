@@ -1,5 +1,6 @@
+"use client";
 import { TopingsModal } from "@/components";
-import React from "react";
+import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import {
   Dialog,
@@ -17,11 +18,18 @@ import Image from "next/image";
 
 import { Iproduct } from "@/types";
 import { DialogTitle } from "@radix-ui/react-dialog";
+
 interface IPropType {
   obj: Iproduct;
 }
 
 const ProductCard = ({ obj }: IPropType) => {
+  const [selectedSize, setSelectedSize] = useState<"S" | "M" | "L">("S");
+
+  const handleSizeChange = (size: "S" | "M" | "L") => {
+    setSelectedSize(size);
+  };
+
   return (
     <Card className="max-w-[350px] border-none rounded-xl shadow-xl">
       <CardHeader className="flex justify-center items-center">
@@ -39,7 +47,7 @@ const ProductCard = ({ obj }: IPropType) => {
         </p>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <p className="font-bold">RS {obj.price}</p>
+        <p className="font-bold">RS {obj.price[selectedSize]}</p>
         <Dialog>
           <DialogTrigger asChild>
             <button
@@ -54,7 +62,10 @@ const ProductCard = ({ obj }: IPropType) => {
             <DialogDescription className="hidden">
               Make changes to your profile here. Click save when you're done.
             </DialogDescription>
-            <TopingsModal selectedProduct={obj} />
+            <TopingsModal
+              selectedProduct={obj}
+              onSizeChange={handleSizeChange}
+            />
           </DialogContent>
         </Dialog>
       </CardFooter>

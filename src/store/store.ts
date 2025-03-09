@@ -9,19 +9,25 @@ type Actions = {
   setCartItems: (newItem: ICartItem) => void;
   removeCartItem: (itemId: number) => void;
 };
+
 const useCartStore = create<State & Actions>()(
   persist(
     (set) => ({
       cartItems: [],
       setCartItems: (newItem) =>
         set((state) => {
+          // Check if the item already exists with the same product ID, size, and toppings
           const itemExists = state.cartItems.some(
             (item: ICartItem) =>
               item.product.id === newItem.product.id &&
               item.chosenConfiguration.priceConfiguration.size ===
-                newItem.chosenConfiguration.priceConfiguration.size // Assuming each item has a unique 'id' property
+                newItem.chosenConfiguration.priceConfiguration.size &&
+              JSON.stringify(item.chosenConfiguration.selectedToppings) ===
+                JSON.stringify(newItem.chosenConfiguration.selectedToppings)
           );
+
           if (!itemExists) {
+            // Add the new item if it doesn't already exist
             return {
               cartItems: [...state.cartItems, newItem],
             };

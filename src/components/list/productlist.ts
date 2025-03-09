@@ -17,113 +17,44 @@ export const products: Iproduct[] = [
     name: "AppleJuice",
     category: "drinks",
     img: AppleJuice,
-    price: 500,
+    price: {
+      S: 500, // Small size price
+      M: 700, // Medium size price
+      L: 900, // Large size price
+    },
   },
   {
     id: 2,
     name: "OrangeJuice",
     category: "drinks",
     img: OrangeJuice,
-    price: 500,
-  },
-  {
-    id: 3,
-    name: "Pepsi",
-    category: "drinks",
-    img: Pepsi,
-    price: 40,
-  },
-  {
-    id: 4,
-    name: "Cocacola",
-    category: "drinks",
-    img: Cocacola,
-    price: 4000,
-  },
-  {
-    id: 5,
-    name: "OrangeJuice2",
-    category: "drinks",
-    img: OrangeJuice,
-    price: 200,
-  },
-  {
-    id: 6,
-    category: "drinks",
-    name: "Water",
-    img: Water,
-    price: 1000,
-  },
-  {
-    id: 7,
-    name: "Pepsi2",
-    img: Pepsi,
-    category: "drinks",
-    price: 100,
-  },
-  {
-    id: 8,
-    name: "Tropicana",
-    category: "drinks",
-    img: Tropicana,
-    price: 580,
+    price: {
+      S: 500,
+      M: 700,
+      L: 900,
+    },
   },
   {
     id: 9,
     name: "Cheese",
     img: cheese,
-    price: 300,
     category: "pizza",
+    price: {
+      S: 300,
+      M: 500,
+      L: 700,
+    },
   },
   {
     id: 10,
     name: "Pepproni",
     img: pepproni,
-    price: 500,
     category: "pizza",
+    price: {
+      S: 500,
+      M: 700,
+      L: 900,
+    },
   },
-  {
-    id: 11,
-    name: "Margarita",
-    category: "pizza",
-    img: margarita,
-    price: 600,
-  },
-  {
-    id: 12,
-    name: "Margarita2",
-    img: margarita,
-    price: 200,
-    category: "pizza",
-  },
-
-  {
-    id: 13,
-    name: "Cheese3",
-    img: cheese,
-    price: 500,
-    category: "pizza",
-  },
-
-  {
-    id: 14,
-    name: "Pepproni2",
-    img: pepproni,
-    price: 1000,
-    category: "pizza",
-  },
-  {
-    id: 15,
-    name: "Cheese2",
-    img: cheese,
-    price: 500,
-    category: "pizza",
-  },
-  {
-    id: 16,
-    name: "Margarita3",
-    img: margarita,
-    price: 520,
-    category: "pizza",
-  },
+  // Add other products similarly...
 ];

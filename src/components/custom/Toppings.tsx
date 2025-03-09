@@ -17,25 +17,21 @@ const Toppings = ({
   const isCurrentSelected = selectedToppings.some(
     (element) => element.id === topping.id
   );
+
   return (
-    <>
-      <Card
-        className={`${
-          isCurrentSelected && "border border-primary"
-        } p-2 relative my-8`}
-        onClick={() => handleCheckBoxCheck(topping)}
-      >
-        <Image
-          src={topping.img}
-          alt="toppings loading"
-          height={40}
-          width={40}
-        />
-        <h1 className="mt-4">{topping.name}</h1>
-        <p>Rs {topping.price} </p>
+    <Card
+      className={`p-2 relative cursor-pointer ${
+        isCurrentSelected ? "border border-primary" : ""
+      }`}
+      onClick={() => handleCheckBoxCheck(topping)}
+    >
+      <Image src={topping.img} alt="toppings loading" height={40} width={40} />
+      <h1 className="mt-4">{topping.name}</h1>
+      <p>Rs {topping.price}</p>
+      {isCurrentSelected && (
         <CircleCheck className="text-primary absolute top-2 right-2" />
-      </Card>
-    </>
+      )}
+    </Card>
   );
 };
 
