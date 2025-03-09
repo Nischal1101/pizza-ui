@@ -12,7 +12,7 @@ export const cartProduct: ICartItem[] = [
       id: 9,
       name: "Cheese",
       img: cheese,
-      price: 300,
+      price: { S: 300, M: 400, L: 500 },
       category: "pizza",
     },
     chosenConfiguration: {
